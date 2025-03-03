@@ -20,7 +20,6 @@ def run():
                 money = (gam *1.5)+money
                 print("congrate you won! you now have")
             else:
-                money = money - gam
                 print("you lost! you now have")
     elif pick == "1/3":
         gam = int(input("how much would you like to gamble"))
@@ -29,7 +28,6 @@ def run():
             print("cant gamble that much!")
             run()
         else:
-            money = money - gam
             cpu = rd.randint(1,4)
             if cpu == 2 :
                 print("you lost! you now have")
@@ -44,13 +42,14 @@ def run():
             run()
         else:
             money = money - gam
-            cpu = rd.randint(1,2)
-            if cpu == 1:
+            cpu = rd.randint(1,4)
+            if cpu == 1 or cpu == 2:
                 print("congrats you won! you now have")
                 money = (gam *2)+money
             else:
                 print("you lost! you now have")
-                money = money - gam
+    elif pick == "lukey":
+        money = 99999999 
     else:
         print("not valid try again")
         run()
@@ -58,7 +57,7 @@ def run():
     check()
 
 def check():
-    if money >= 0:
+    if money > 0:
         print(money)
         run()
     else:
